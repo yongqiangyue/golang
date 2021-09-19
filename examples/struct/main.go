@@ -34,8 +34,28 @@ func (v mySlice) sumOfSlice() int {
 	return sum
 }
 
+type person struct{}
+
+func (p *person) speak() {
+	fmt.Println("person speak")
+}
+
+type Admin struct {
+	// person
+	p *person
+	a int
+}
+
+func (a *Admin) speak() {
+	a.p.speak()
+}
+
 // note: 方法：在go中和struct关联，被称为struct的receiver.
 func main() {
+	admin := new(Admin)
+	admin.speak()
+	admin.p.speak()
+
 	x := mySlice{1, 2, 3, 4, 5}
 	fmt.Println(x.sumOfSlice())
 
