@@ -3,14 +3,35 @@ package main
 import (
 	"flag"
 	"fmt"
-	"os"
 )
 
+/* note:
+go run main.go --name ft
+go run main.go --name ai.ft
+*/
 func main() {
 	name := flag.String("name", "world", "specify the name you want to say hi")
 	flag.Parse()
-	fmt.Println("os args is:", os.Args)
-	fmt.Println("input parameter is:", *name)
-	fullString := fmt.Sprintf("Hello %s from Go\n", *name)
-	fmt.Println(fullString)
+	// var strVal string
+	// flag.StringVar(&strVal, "sval", "zhangshicun", "notes")
+	// flag.Parse()
+	// fmt.Println("sval:", strVal)
+	// fmt.Println("os args is:", os.Args)
+	// fmt.Println("input parameter is:", *name)
+	// fullString := fmt.Sprintf("Hello %s from Go\n", *name)
+	// fmt.Println(fullString)
+	result, err := duplicateString(*name)
+	if err == nil {
+		fmt.Println(result)
+	} else {
+		fmt.Println(err)
+	}
+}
+
+func duplicateString(input string) (string, error) {
+	if input == "ft" {
+		return "", fmt.Errorf("ccbft is not allowed")
+	} else {
+		return input + input, nil
+	}
 }
