@@ -28,10 +28,11 @@ func main() {
 	}
 }
 
-func duplicateString(input string) (string, error) {
+func duplicateString(input string) (result string, err error) {
 	if input == "ft" {
-		return "", fmt.Errorf("ccbft is not allowed")
+		err = fmt.Errorf("ft is not allowed")
 	} else {
-		return input + input, nil
+		result = input + input
 	}
+	return
 }
