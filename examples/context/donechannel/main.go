@@ -21,7 +21,7 @@ func main() {
 			default:
 				fmt.Printf("send message: %d\n", <-messages)
 			}
-		}
+		} 
 	}()
 
 	// producer

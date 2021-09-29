@@ -7,14 +7,16 @@ import (
 func main() {
 	str := "a string value"
 	pointer := &str
-	anotherString := *&str
+	// anotherString := *&str
 	fmt.Println(str)
 	fmt.Println(pointer)
-	fmt.Println(anotherString)
+	// fmt.Println(anotherString)
 	str = "changed string"
 	fmt.Println(str)
-	fmt.Println(pointer)
-	fmt.Println(anotherString)
+	fmt.Println(&str)
+	fmt.Println(*&str)
+	// fmt.Println(pointer)
+	// fmt.Println(anotherString)
 	para := ParameterStruct{Name: "aaa"}
 	fmt.Println(para)
 	changeParameter(&para, "bbb")
